@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Parking Dashboard</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header id="dashboard-header">
+    <h1>Smart Parking Dashboard</h1>
+    <p id="current-datetime">Loading current time...</p>
+  </header>
+
+  <main class="container">
+    <!-- Current Occupancy Cards -->
+    <section class="cards">
+      <div class="card" id="slot1-card">
+        <h2>Slot 1</h2>
+        <p id="current-slot1">Loading...</p>
+      </div>
+      <div class="card" id="slot2-card">
+        <h2>Slot 2</h2>
+        <p id="current-slot2">Loading...</p>
+      </div>
+    </section>
+
+    <!-- Predictions Table -->
+    <section class="predictions">
+      <h2>Next Predictions</h2>
+      <div class="table-wrapper">
+        <table id="prediction-table">
+          <thead>
+            <tr>
+              <th>Time Range</th>
+              <th>Slot 1</th>
+              <th>Slot 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows dynamically inserted by JS -->
+          </tbody>
+        </table>
+      </div>
+      <div class="load-more-wrapper">
+        <button id="load-more">Load More</button>
+        <button id="load-less">Load Less</button>
+      </div>
+    </section>
+
+    <!-- Chart Section -->
+    <section class="charts">
+      <h2>Occupancy Trends (Next 24 Hours)</h2>
+      <div class="card">
+        <canvas id="occupancyChart"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <!-- Fullscreen Chart Modal -->
+  <div id="chart-modal" class="chart-modal">
+    <span id="close-modal">&times;</span>
+    <canvas id="fullscreenChart"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: #f0f2f5;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  padding: 25px;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  color: white;
+  animation: gradientAnimation 6s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header h1 { margin: 0; }
+header p { margin-top: 5px; font-size: 16px; }
+
+/* Container */
+.container { width: 95%; max-width: 1200px; margin: 20px auto; }
+
+/* Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.card {
+  flex: 1 1 200px;
+  max-width: 250px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+.card:hover { transform: translateY(-5px); }
+
+.card p { font-size: 24px; font-weight: 600; margin: 10px 0 0 0; }
+
+/* Slot Colors */
+.free { background-color: #4caf50 !important; color: white; }
+.occupied { background-color: #f44336 !important; color: white; }
+.predicted { background-color: #ffeb3b !important; color: #333; font-weight: bold; }
+
+/* Predictions Table */
+.table-wrapper { overflow-x: auto; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+th, td { padding: 12px; text-align: center; }
+th { background-color: #007bff; color: white; position: sticky; top: 0; }
+tr:nth-child(even) { background: #f9f9f9; }
+
+.load-more-wrapper { text-align: center; margin-top: 15px; }
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+  transition: background-color 0.2s;
+}
+button:hover { background-color: #0056b3; }
+
+/* Chart Section */
+.charts { margin-top: 30px; }
+canvas { width: 100% !important; height: 300px !important; }
+
+/* Fullscreen chart modal */
+.chart-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+  align-items: center;
+  justify-content: center;
+}
+.chart-modal canvas { max-width: 90%; max-height: 90%; }
+#close-modal {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .cards { flex-direction: column; align-items: center; }
+}
+@media screen and (max-width: 480px) {
+  header h1 { font-size: 20px; }
+  header p { font-size: 14px; }
+}
